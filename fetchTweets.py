@@ -9,46 +9,73 @@ import tweepy as tw
 import pandas as pd
 import botometer
 import wordcloud 
+import sys# for error handeling 
 
-
-consumer_key = "8gTOmnBgiP4cQXVgrxOiCS3yX"
-consumer_secret = "MfYfaTRaoQJRisZX5KuTAOxs5xENtGcuM4DuI4CFomI1XhPWOb"
-
-# creating an OAuthHandler instance
-# refernece https://tweepy.readthedocs.io/en/latest/auth_tutorial.html
-auth = tw.OAuthHandler(consumer_key, consumer_secret)
-
-OAUTH_TOKEN = "2223349652-ObLnAWQvXGhUtueTkcIflppxb27B6895ibTHLi9"
-OAUTH_TOKEN_SECRET = "cpdE3vEE2RAY00KdqyzG7tdIZSs6YbQu2tdN5lmoCM2Qp"
-auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
-
-
-api = tw.API(auth)
 
 # Define the search term and the date_since date as variables
 #search_words = ["#uselections","2020elections"]
                 
-search_words = ["#uselections", "#2020elections", "#2020Election", "#elections2020", "#election2020", "#democratic", "#republican", "#PresidentialElection2020", "PresidentialElections2020"]
+#search_words = ["#uselections", "#2016elections", "#2020Election", \
+#                "#elections2016", "#election2016", "#democratic", \
+#                "#republican", "#PresidentialElection2016",\
+#                "PresidentialElections2016"]
 
-date_since = "2019-7-1"
+search_words = ["#2016elections"]
+
+date_since = "2016-11-7"
+date_until = "2016-11-9"
 
 allTweets= []
 for search_word in search_words:
     print(search_word)
     # Collect tweets
-    tweets = tw.Cursor(api.search,
-                  q=search_word,
-                  lang="en",
-                  since=date_since).items(100)
-    """
-        .Cursor() returns an object that you can iterate or loop over to access the
-        data collected. Each item in the iterator has various attributes that you 
-        can access to get information about each tweet including:
+
+    try:    
+        consumer_key = "8gTOmnBgiP4cQXVgrxOiCS3yX"
+        consumer_secret = "MfYfaTRaoQJRisZX5KuTAOxs5xENtGcuM4DuI4CFomI1XhPWOb"
         
-        - the text of the tweet
-        - who sent the tweet
-        - the date the tweet was sent
-    """
+        # creating an OAuthHandler instance
+        # refernece https://tweepy.readthedocs.io/en/latest/auth_tutorial.html
+        auth = tw.OAuthHandler(consumer_key, consumer_secret)
+        
+        OAUTH_TOKEN = "2223349652-ObLnAWQvXGhUtueTkcIflppxb27B6895ibTHLi9"
+        OAUTH_TOKEN_SECRET = "cpdE3vEE2RAY00KdqyzG7tdIZSs6YbQu2tdN5lmoCM2Qp"
+        auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
+
+        api = tw.API(auth,wait_on_rate_limit=True)
+        tweets = tw.Cursor(api.search,
+                      q=search_word,
+                      lang="en",
+                      since=date_since).items(2)
+        """
+            .Cursor() returns an object that you can iterate or loop over to access the
+            data collected. Each item in the iterator has various attributes that you 
+            can access to get information about each tweet including:
+            
+            - the text of the tweet
+            - who sent the tweet
+            - the date the tweet was sent
+        """
+    except tw.RateLimitError:
+        #Use the other key here
+        consumer_key = "W6y5Lup84KbpW5dR8KIMTVSqt"
+        consumer_secret = "6FCmqr2G32rxD8wGbptCAW3S7mhKowF342tEBieenmBzj2z8oE"
+        
+        # creating an OAuthHandler instance
+        # refernece https://tweepy.readthedocs.io/en/latest/auth_tutorial.html
+        auth = tw.OAuthHandler(consumer_key, consumer_secret)
+        
+        OAUTH_TOKEN = "885081121179959296-jKKCMyxHmbybJz4FcYXwtxYmcwU7Xo7"
+        OAUTH_TOKEN_SECRET = "OJeZppbRU9yS9m7aPfbZ9WFq35SmfpPLyf7CchTJNkrKz"
+        auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
+        
+        api = tw.API(auth,wait_on_rate_limit=True)
+        tweets = tw.Cursor(api.search,
+                      q=search_word,
+                      lang="en",
+                      since=date_since).items(2)
+    except:
+        print("Unexpected error:"+ sys.exc_info()[0])
     allTweets.extend([tweet for tweet in tweets]) 
 
 #print([tweet.text for tweet in allTweets])
