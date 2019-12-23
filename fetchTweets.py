@@ -8,7 +8,7 @@ Created on Sun Nov  3 20:27:34 2019
 import tweepy as tw
 import pandas as pd
 import botometer
-import wordcloud 
+#import wordcloud 
 import sys# for error handeling 
 
 
@@ -20,10 +20,9 @@ import sys# for error handeling
 #                "#republican", "#PresidentialElection2016",\
 #                "PresidentialElections2016"]
 
-search_words = ["#2016elections"]
+search_words = ["#adult","#milf","#video","#hentai","#nsfw"]
 
-date_since = "2016-11-7"
-date_until = "2016-11-9"
+date_since = "2019-08-01"
 
 allTweets= []
 for search_word in search_words:
