@@ -9,54 +9,34 @@ Result View
 ## Bhavdeep S. Sachdeva^1 (1217205756), Sai Pramod V.^1 (1217195369), Tahora H. Nazer^1 ∗
 
 (^1) Arizona State University
-
+```
+∗PhD. Guide
+```
 ## {bssachde, svallab6, tahora.nazer}@asu.edu
 
 ## 1 Introduction
 
-In 2011, a seven months long study by [LEC11] identified
-four types of bot accounts lurking around us on Twitter:Du-
-plicate Spammers,Duplicate @Spammer,Malicious Pro-
-moters, andFriend Infiltrators. Since then bots have deeply
-embedded themselves into our social media networks. De-
-spite all their nefarious uses, there are examples of bots pro-
-viding valuable services to social media users [Møn+17].
-Some of these ”good” bots have mitigated the effect of the
-so called nefarious bots. Different typologies of these bots
-have been shown in [Sti+17], and have been summarized by
-Matthew Davis, from the Data Mining and Machine Learning
-(DMML) lab at Arizona State University(ASU), in Figure 1.
+In 2011, a seven months long study by [LEC11] identified four types of bot accounts lurking around us on Twitter:Du-
+plicate Spammers,Duplicate @Spammer,Malicious Promoters, andFriend Infiltrators. Since then bots have deeply
+embedded themselves into our social media networks. Despite all their nefarious uses, there are examples of bots pro-
+viding valuable services to social media users [Møn+17]. Some of these ”good” bots have mitigated the effect of the
+so called nefarious bots. Different typologies of these bots have been shown in [Sti+17], and have been summarized by
+Matthew Davis, from the Data Mining and Machine Learning (DMML) lab at Arizona State University(ASU), in Figure 1.
 
 ```
 Figure 1: Example Typology of Bots
 ```
-One example of how bots have been identified according
-to their intents can be seen in a study by [Yan+19], which
-classifies bots into the following major categories: Simple
-bots(Obvious to human users, post many tweets to make con-
-tent visible),Sophisticated bots(Interact with human users by
-exploiting retweets, hashtags, and mentions),Fake Follow-
-ers(Increase the popularity of and lend credibility to some
-other users on the network), andBotnets(Use coordination
-to interact with each other and/or human users on the net-
-work). Twitter bots in general have had a significant impact in
-
-```
-∗PhD. Guide
-```
-```
-the 2016 general elections and 2018 midterm elections. In a
-study conducted by [BF16], it was found that there are about
-400,000 bots that were engaged in 2016 online discussions
-about Presidential election, responsible for roughly 3.8 mil-
-lion tweets, about one fifth of the entire conversation. The
-main intent of the creators of these malicious bot accounts is,
-rather simply, to behave such that the accounts are not iden-
-tified as bots and continue fooling bot detection technologies
-while still fulfilling their malicious agenda on Twitter. This
-is an eternal hide-and-seek between the bots and the bot de-
-tection methodologies. In our research we aim at identifying
-how these bots have evolve over time and managed to evade
+One example of how bots have been identified according to their intents can be seen in a study by [Yan+19], which
+classifies bots into the following major categories: Simple bots(Obvious to human users, post many tweets to make con-
+tent visible),Sophisticated bots(Interact with human users by exploiting retweets, hashtags, and mentions),Fake Follow-
+ers(Increase the popularity of and lend credibility to some other users on the network), andBotnets(Use coordination
+to interact with each other and/or human users on the network). Twitter bots in general have had a significant impact in
+the 2016 general elections and 2018 midterm elections. In a study conducted by [BF16], it was found that there are about
+400,000 bots that were engaged in 2016 online discussions about Presidential election, responsible for roughly 3.8 mil-
+lion tweets, about one fifth of the entire conversation. The main intent of the creators of these malicious bot accounts is,
+rather simply, to behave such that the accounts are not identified as bots and continue fooling bot detection technologies
+while still fulfilling their malicious agenda on Twitter. This is an eternal hide-and-seek between the bots and the bot de-
+tection methodologies. In our research we aim at identifying how these bots have evolve over time and managed to evade
 these detection techniques.
 ```
 ## 2 Terminology
@@ -64,30 +44,19 @@ these detection techniques.
 ### 2.1 Social Bots
 
 ```
-A social bot, also known as Sybil account, allows the human
-user to programmatically produce content on social media.
-These accounts interact with other bots as well as humans. If
-the bot once created does not have any human intervention af-
-terwards it is regarded as afully automated bot. Alternatively,
-if the bot has certain human control involved it is regarded as
-asemi-automated bot[18].
+A social bot, also known as Sybil account, allows the human user to programmatically produce content on social media.
+These accounts interact with other bots as well as humans. If the bot once created does not have any human intervention af-
+terwards it is regarded as afully automated bot. Alternatively, if the bot has certain human control involved it is regarded as asemi-automated bot[18].
 ```
 ### 2.2 Botnet API aka Bot or Not [Dav+16]
 
 ```
-Botnet API is a web service that was made public in May
-```
-2014. The service provides the bot-likelihood of a user us-
-ing the in-house classifier. TheBotOrNotclassifier generates
-more than 1,000 features using the available meta data from
-the Twitter API^1. These features consists of following 6 main
-classes:networkinformation diffusion patterns,usertwitter
-meta data related to the account,friendsdescriptive statistics
-related to accounts social contacts,temporal featuressuch
-as the date of creation, inter tweet time distribution,content
-features based on linguistics cues computer through natural
-language processing, andsentimentbuilt using general pur-
-pose and Twitter specific sentiment analysis.
+Botnet API is a web service that was made public in May 2014. The service provides the bot-likelihood of a user us-
+ing the in-house classifier. TheBotOrNotclassifier generates more than 1,000 features using the available meta data from
+the Twitter API^1. These features consists of following 6 main classes:networkinformation diffusion patterns,usertwitter
+meta data related to the account,friendsdescriptive statistics related to accounts social contacts,temporal featuressuch
+as the date of creation, inter tweet time distribution,content features based on linguistics cues computer through natural
+language processing, andsentimentbuilt using general purpose and Twitter specific sentiment analysis.
 
 ## 3 Data Summary
 
